@@ -40,7 +40,7 @@ def setup_plugin():
     routes = [
         ('indexedsearch',
          '/search/',
-         'indexedsearch.views:' + view)]
+         'mediagoblin.plugins.indexedsearch.views:' + view)]
 
     pluginapi.register_routes(routes)
     pluginapi.register_template_path(os.path.join(PLUGIN_DIR, 'templates'))
@@ -73,7 +73,8 @@ hooks = {
 
 
 def get_engine():
-    config = pluginapi.get_config('indexedsearch')
+    #config = pluginapi.get_config('indexedsearch')
+    config = pluginapi.get_config('mediagoblin.plugins.indexedsearch')
     backend_module = importlib.import_module(config.get('BACKEND'))
     return backend_module.Engine(**config)
 

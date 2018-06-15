@@ -7,11 +7,11 @@ import whoosh.writing
 import whoosh.qparser
 
 from mediagoblin.db.models import MediaEntry
-from indexedsearch.backends import BaseEngine, MediaNotProcessedError
+from mediagoblin.plugins.indexedsearch.backends import BaseEngine, MediaNotProcessedError
 
 _log = logging.getLogger(__name__)
 INDEX_NAME = 'media_entries'
-DEFAULT_SEARCH_FIELDS = ['title', 'description', 'tag', 'comment']
+DEFAULT_SEARCH_FIELDS = ['title', 'description', 'tag']
 
 
 class MediaEntrySchema(whoosh.fields.SchemaClass):

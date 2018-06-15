@@ -20,8 +20,8 @@ from mediagoblin.tools.pagination import Pagination
 from mediagoblin.tools import pluginapi
 from mediagoblin.meddleware.csrf import csrf_exempt
 
-from indexedsearch import get_engine
-import indexedsearch.forms
+from mediagoblin.plugins.indexedsearch import get_engine
+import mediagoblin.plugins.indexedsearch.forms as forms
 
 import logging
 _log = logging.getLogger(__name__)
@@ -37,7 +37,7 @@ def user_search_results_view(request):
 def search_results_view(request, page):
     media_entries = None
     pagination = None
-    form = indexedsearch.forms.SearchForm(request.form)
+    form = forms.SearchForm(request.form)
 
     config = pluginapi.get_config('indexedsearch')
     if config.get('SEARCH_LINK_STYLE') == 'form':

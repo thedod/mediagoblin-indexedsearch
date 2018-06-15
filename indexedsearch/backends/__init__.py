@@ -60,7 +60,7 @@ class BaseEngine(object):
                'description': media.description,
                'media_id': media.id,
                'time': media.updated,
-               'tag': tags,
+               'tag': tags or [],
                'comment': comments}
 
         if media.get_actor:
